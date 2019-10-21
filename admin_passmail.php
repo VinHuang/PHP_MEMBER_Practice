@@ -62,12 +62,8 @@ if(isset($_POST["m_username"])){
 		$mailSubject="=?UTF-8?B?" . base64_encode("補寄密碼信"). "?=";
 		$mailHeader="From:".$mailFrom."\r\n";
 		$mailHeader.="Content-type:text/html;charset=UTF-8";
-		echo $mailto;
-		//echo $mailSubject;
-		//echo $mailcontent;
-		//echo $mailHeader;
-		//if(!@mail($mailto,$mailSubject,$mailcontent,$mailHeader)) die("郵寄失敗！");
-		//header("Location: admin_passmail.php?mailStats=1");
+		if(!@mail($mailto,$mailSubject,$mailcontent,$mailHeader)) die("郵寄失敗！");
+		header("Location: admin_passmail.php?mailStats=1");
 	}
 }
 ?>
